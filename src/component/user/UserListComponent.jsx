@@ -11,9 +11,9 @@ import Typography from '@material-ui/core/Typography'
 import CreateIcon from '@material-ui/icons/Create'
 import DeleteIcon from '@material-ui/icons/Delete'
 
-class UserListComponent extends Component{
+class UserListComponent extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -22,13 +22,13 @@ class UserListComponent extends Component{
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.reloadUserList();
   }
 
   reloadUserList = () => {
     ApiService.fetchUsers()
-      .then( res => {
+      .then(res => {
         this.setState({
           users: res.data
         })
@@ -40,20 +40,20 @@ class UserListComponent extends Component{
 
   deleteUser = (userID) => {
     ApiService.deleteUser(userID)
-      .then( res => {
+      .then(res => {
         this.setState({
           message: 'User Deleted Successfully.'
         });
         this.setState({
-          users: this.state.users.filter( user =>
+          users: this.state.users.filter(user =>
             user.id !== userID)
-          });
-        })
+        });
+      })
       .catch(err => {
         console.log('deleteUser() Error!', err);
       })
   }
-  
+
   editUser = (ID) => {
     window.localStorage.setItem("userID", ID);
     this.props.history.push('/edit-user');
@@ -64,9 +64,9 @@ class UserListComponent extends Component{
     this.props.history.push('/add-user');
   }
 
-  render(){
+  render() {
 
-    return(
+    return (
       <div>
         <Typography variant="h4" style={style}>User List</Typography>
         <Button variant="contained" color="primary" onClick={this.addUser}> Add User </Button>
@@ -84,7 +84,7 @@ class UserListComponent extends Component{
             </TableRow>
           </TableHead>
           <TableBody>
-            {this.state.users.map( user => 
+            {this.state.users.map(user =>
               <TableRow key={user.id}>
                 <TableCell component="th" scope="user">{user.id}</TableCell>
                 <TableCell align="right">{user.firstName}</TableCell>
@@ -92,10 +92,10 @@ class UserListComponent extends Component{
                 <TableCell align="right">{user.username}</TableCell>
                 <TableCell align="right">{user.age}</TableCell>
                 <TableCell align="right">{user.salary}</TableCell>
-                <TableCell align="right" onClick={()=> this.editUser(user.id)}>
+                <TableCell align="right" onClick={() => this.editUser(user.id)}>
                   <CreateIcon />
                 </TableCell>
-                <TableCell align="right" onClick={()=> this.deleteUser(user.id)}>
+                <TableCell align="right" onClick={() => this.deleteUser(user.id)}>
                   <DeleteIcon />
                 </TableCell>
               </TableRow>
@@ -104,7 +104,7 @@ class UserListComponent extends Component{
         </Table>
       </div>
     );
-    
+
   }
 
 }
