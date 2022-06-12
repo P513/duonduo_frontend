@@ -56,12 +56,12 @@ class UserListComponent extends Component {
 
   editUser = (ID) => {
     window.localStorage.setItem("userID", ID);
-    this.props.history.push('/edit-user');
+    window.location.href = '/edit-user';
   }
 
   addUser = () => {
     window.localStorage.removeItem("userID");
-    this.props.history.push('/add-user');
+    window.location.href = '/add-user';
   }
 
   render() {
@@ -102,7 +102,7 @@ class UserListComponent extends Component {
             )}
           </TableBody>
         </Table>
-      </div>
+      </div >
     );
 
   }

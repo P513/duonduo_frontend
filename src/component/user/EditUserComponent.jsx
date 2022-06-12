@@ -5,9 +5,9 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-class EditUserComponent extends Component{
+class EditUserComponent extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -21,13 +21,13 @@ class EditUserComponent extends Component{
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.loadUser();
   }
 
   loadUser = () => {
     ApiService.fetchUserByID(window.localStorage.getItem("userID"))
-      .then( res => {
+      .then(res => {
         let user = res.data;
         this.setState({
           id: user.id,
@@ -45,7 +45,7 @@ class EditUserComponent extends Component{
 
   onChange = (e) => {
     this.setState({
-      [e.target.name] : e.target.value
+      [e.target.name]: e.target.value
     });
   }
 
@@ -62,36 +62,36 @@ class EditUserComponent extends Component{
     }
 
     ApiService.editUser(user)
-      .then( res => {
+      .then(res => {
         this.setState({
-          message : user.lastName + '님 정보가 수정되었습니다.'
+          message: user.lastName + '님 정보가 수정되었습니다.'
         })
-        this.props.history.push('/users');
+        window.location.href = '/users';
       })
       .catch(err => {
         console.log('saveUser() 에러', err);
       })
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <Typography variant="h4" style={style}>Edit User</Typography>
         <form>
-            <TextField type="text" name="username" readOnly={true} 
-fullWidth margin="normal" value={this.state.username} />
+          <TextField type="text" name="username" readOnly={true}
+            fullWidth margin="normal" value={this.state.username} />
 
-            <TextField placeholder="Edit your first name" name="firstName" 
-fullWidth margin="normal" value={this.state.firstName} onChange={this.onChange} />
+          <TextField placeholder="Edit your first name" name="firstName"
+            fullWidth margin="normal" value={this.state.firstName} onChange={this.onChange} />
 
-            <TextField placeholder="Edit your last name" name="lastName" 
-fullWidth margin="normal" value={this.state.lastName} onChange={this.onChange} />
+          <TextField placeholder="Edit your last name" name="lastName"
+            fullWidth margin="normal" value={this.state.lastName} onChange={this.onChange} />
 
-            <TextField type="number" placeholder="Edit your age" name="age" 
-fullWidth margin="normal" value={this.state.age} onChange={this.onChange} />
+          <TextField type="number" placeholder="Edit your age" name="age"
+            fullWidth margin="normal" value={this.state.age} onChange={this.onChange} />
 
-            <TextField type="number" placeholder="Edit your salary" name="salary" 
-fullWidth margin="normal" value={this.state.salary} onChange={this.onChange} />
+          <TextField type="number" placeholder="Edit your salary" name="salary"
+            fullWidth margin="normal" value={this.state.salary} onChange={this.onChange} />
 
           <Button variant="contained" color="primary" onClick={this.saveUser}>Save</Button>
 
