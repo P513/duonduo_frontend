@@ -11,13 +11,9 @@ class AddUserComponent extends Component {
     super(props);
 
     this.state = {
-      username: '',
       password: '',
-      firstName: '',
-      lastName: '',
-      age: '',
-      salary: '',
-      message: null
+      salt: '',
+      email: ''
     }
 
   }
@@ -32,12 +28,9 @@ class AddUserComponent extends Component {
     e.preventDefault();
 
     let user = {
-      username: this.state.username,
       password: this.state.password,
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      age: this.state.age,
-      salary: this.state.salary,
+      salt: this.state.salt,
+      email: this.state.email
     }
 
     ApiService.addUser(user)
