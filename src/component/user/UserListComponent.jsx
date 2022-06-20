@@ -76,6 +76,7 @@ class UserListComponent extends Component {
               <TableCell>ID</TableCell>
               <TableCell>nicknameId</TableCell>
               <TableCell align="right">email</TableCell>
+              <TableCell align="right">createdAt</TableCell>
               <TableCell align="right">evalCnt</TableCell>
               <TableCell align="right">evalSum</TableCell>
             </TableRow>
@@ -86,6 +87,7 @@ class UserListComponent extends Component {
                 <TableCell component="th" scope="user">{user.id}</TableCell>
                 <TableCell align="right">{user.nicknameId}</TableCell>
                 <TableCell align="right">{user.email}</TableCell>
+                <TableCell align="right">{user.createdAt}</TableCell>
                 <TableCell align="right">{user.evalCnt}</TableCell>
                 <TableCell align="right">{user.evalSum}</TableCell>
                 <TableCell align="right" onClick={() => this.editUser(user.id)}>
