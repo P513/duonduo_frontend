@@ -11,12 +11,7 @@ class EditUserComponent extends Component {
     super(props);
 
     this.state = {
-      id: '',
-      username: '',
-      firstName: '',
-      lastName: '',
-      age: '',
-      salary: '',
+      password: '',
       message: null
     }
   }
@@ -31,11 +26,7 @@ class EditUserComponent extends Component {
         let user = res.data;
         this.setState({
           id: user.id,
-          username: user.username,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          age: user.age,
-          salary: user.salary
+          password: ""
         })
       })
       .catch(err => {
@@ -54,17 +45,14 @@ class EditUserComponent extends Component {
 
     let user = {
       id: this.state.id,
-      password: this.state.password,
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      age: this.state.age,
-      salary: this.state.salary
+      nicknameId: this.state.nicknameId,
+      password: ""
     }
 
     ApiService.editUser(user)
       .then(res => {
         this.setState({
-          message: user.lastName + '님 정보가 수정되었습니다.'
+          message: user.nicknameId + '님 정보가 수정되었습니다.'
         })
         window.location.href = '/users';
       })
@@ -78,20 +66,8 @@ class EditUserComponent extends Component {
       <div>
         <Typography variant="h4" style={style}>Edit User</Typography>
         <form>
-          <TextField type="text" name="username" readOnly={true}
-            fullWidth margin="normal" value={this.state.username} />
-
-          <TextField placeholder="Edit your first name" name="firstName"
-            fullWidth margin="normal" value={this.state.firstName} onChange={this.onChange} />
-
-          <TextField placeholder="Edit your last name" name="lastName"
-            fullWidth margin="normal" value={this.state.lastName} onChange={this.onChange} />
-
-          <TextField type="number" placeholder="Edit your age" name="age"
-            fullWidth margin="normal" value={this.state.age} onChange={this.onChange} />
-
-          <TextField type="number" placeholder="Edit your salary" name="salary"
-            fullWidth margin="normal" value={this.state.salary} onChange={this.onChange} />
+          <TextField placeholder="Edit your password" name="password"
+            fullWidth margin="normal" value={this.state.password} onChange={this.onChange} />
 
           <Button variant="contained" color="primary" onClick={this.saveUser}>Save</Button>
 

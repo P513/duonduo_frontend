@@ -74,24 +74,20 @@ class UserListComponent extends Component {
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell>FistName</TableCell>
-              <TableCell align="right">LastName</TableCell>
-              <TableCell align="right">UserName</TableCell>
-              <TableCell align="right">Age</TableCell>
-              <TableCell align="right">Salary</TableCell>
-              <TableCell align="right">Edit</TableCell>
-              <TableCell align="right">Delete</TableCell>
+              <TableCell>nicknameId</TableCell>
+              <TableCell align="right">email</TableCell>
+              <TableCell align="right">evalCnt</TableCell>
+              <TableCell align="right">evalSum</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {this.state.users.map(user =>
               <TableRow key={user.id}>
                 <TableCell component="th" scope="user">{user.id}</TableCell>
-                <TableCell align="right">{user.firstName}</TableCell>
-                <TableCell align="right">{user.lastName}</TableCell>
-                <TableCell align="right">{user.username}</TableCell>
-                <TableCell align="right">{user.age}</TableCell>
-                <TableCell align="right">{user.salary}</TableCell>
+                <TableCell align="right">{user.nicknameId}</TableCell>
+                <TableCell align="right">{user.email}</TableCell>
+                <TableCell align="right">{user.evalCnt}</TableCell>
+                <TableCell align="right">{user.evalSum}</TableCell>
                 <TableCell align="right" onClick={() => this.editUser(user.id)}>
                   <CreateIcon />
                 </TableCell>

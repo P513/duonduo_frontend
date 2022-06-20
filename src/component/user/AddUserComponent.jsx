@@ -12,8 +12,8 @@ class AddUserComponent extends Component {
 
     this.state = {
       password: '',
-      salt: '',
-      email: ''
+      email: '',
+      message: null
     }
 
   }
@@ -29,7 +29,6 @@ class AddUserComponent extends Component {
 
     let user = {
       password: this.state.password,
-      salt: this.state.salt,
       email: this.state.email
     }
 
@@ -53,23 +52,11 @@ class AddUserComponent extends Component {
         <Typography variant="h4" style={style}>Add User</Typography>
         <form style={formContainer}>
 
-          <TextField type="text" placeholder="please input your username" name="username"
-            fullWidth margin="normal" value={this.state.username} onChange={this.onChange} />
+          <TextField type="email" placeholder="please input your email" name="email"
+            fullWidth margin="normal" value={this.state.email} onChange={this.onChange} />
 
           <TextField type="password" placeholder="please input your password" name="password"
             fullWidth margin="normal" value={this.state.password} onChange={this.onChange} />
-
-          <TextField placeholder="please input your first name" name="firstName"
-            fullWidth margin="normal" value={this.state.firstName} onChange={this.onChange} />
-
-          <TextField placeholder="please input your last name" name="lastName"
-            fullWidth margin="normal" value={this.state.lastName} onChange={this.onChange} />
-
-          <TextField type="number" placeholder="please input your age" name="age"
-            fullWidth margin="normal" value={this.state.age} onChange={this.onChange} />
-
-          <TextField type="number" placeholder="please input your salary" name="salary"
-            fullWidth margin="normal" value={this.state.salary} onChange={this.onChange} />
 
           <Button variant="contained" color="primary" onClick={this.saveUser}>Save</Button>
 
