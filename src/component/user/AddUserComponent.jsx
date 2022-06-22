@@ -35,7 +35,7 @@ class AddUserComponent extends Component {
     ApiService.addUser(user)
       .then(res => {
         this.setState({
-          message: user.username + '님이 성공적으로 등록되었습니다.'
+          message: user.email + '님이 성공적으로 등록되었습니다.'
         })
         console.log(this.state.message);
         window.location.href = '/users';
@@ -49,16 +49,16 @@ class AddUserComponent extends Component {
   render() {
     return (
       <div>
-        <Typography variant="h4" style={style}>Add User</Typography>
+        <Typography variant="h4" style={style}>회원가입</Typography>
         <form style={formContainer}>
 
           <TextField type="email" placeholder="please input your email" name="email"
             fullWidth margin="normal" value={this.state.email} onChange={this.onChange} />
 
-          <TextField type="password" placeholder="please input your password" name="password"
+          <TextField type="password" placeholder="please input your password" name="password" autoComplete="current-password"
             fullWidth margin="normal" value={this.state.password} onChange={this.onChange} />
 
-          <Button variant="contained" color="primary" onClick={this.saveUser}>Save</Button>
+          <Button variant="contained" color="primary" onClick={this.saveUser}>가입하기</Button>
 
         </form>
       </div>

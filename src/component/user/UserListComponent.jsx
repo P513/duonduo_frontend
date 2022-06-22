@@ -68,7 +68,7 @@ class UserListComponent extends Component {
 
     return (
       <div>
-        <Typography variant="h4" style={style}>User List</Typography>
+        <Typography variant="h4" style={style}>사용자 목록</Typography>
         <Button variant="contained" color="primary" onClick={this.addUser}> Add User </Button>
         <Table>
           <TableHead>

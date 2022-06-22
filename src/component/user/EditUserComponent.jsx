@@ -52,7 +52,7 @@ class EditUserComponent extends Component {
     ApiService.editUser(user)
       .then(res => {
         this.setState({
-          message: user.nicknameId + '님 정보가 수정되었습니다.'
+          message: user.email + '님 정보가 수정되었습니다.'
         })
         window.location.href = '/users';
       })
@@ -64,12 +64,12 @@ class EditUserComponent extends Component {
   render() {
     return (
       <div>
-        <Typography variant="h4" style={style}>Edit User</Typography>
+        <Typography variant="h4" style={style}>회원정보 수정</Typography>
         <form>
-          <TextField placeholder="Edit your password" name="password"
+          <TextField placeholder="Edit your password" name="password" autoComplete="current-password"
             fullWidth margin="normal" value={this.state.password} onChange={this.onChange} />
 
-          <Button variant="contained" color="primary" onClick={this.saveUser}>Save</Button>
+          <Button variant="contained" color="primary" onClick={this.saveUser}>수정하기</Button>
 
         </form>
       </div>

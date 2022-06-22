@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UserListComponent from "../user/UserListComponent";
 import AddUserComponent from "../user/AddUserComponent";
 import EditUserComponent from "../user/EditUserComponent";
+import LoginUserComponent from "../user/LoginUserComponent";
 
 const AppRouter = () => {
     return (
@@ -10,10 +11,11 @@ const AppRouter = () => {
             <BrowserRouter>
                 <div style={style}>
                     <Routes>
-                        <Route exact path="/" element={<UserListComponent/>} />
-                        <Route path="/users" element={<UserListComponent/>} />
-                        <Route path="/add-user" element={<AddUserComponent/>} />
-                        <Route path="/edit-user" element={<EditUserComponent/>} />
+                        <Route exact path="/" element={<UserListComponent />} />
+                        <Route path="/users" element={<UserListComponent />} />
+                        <Route path="/add-user" element={<AddUserComponent />} />
+                        <Route path="/edit-user" element={<EditUserComponent />} />
+                        <Route path="/login-user" element={<LoginUserComponent />} />
                     </Routes>
                 </div>
             </BrowserRouter>
