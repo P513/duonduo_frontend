@@ -82,7 +82,7 @@ class UserListComponent extends Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {this.state.users.map(user =>
+            {this.state.users.data && this.state.users.data.map((user) =>
               <TableRow key={user.id}>
                 <TableCell component="th" scope="user">{user.id}</TableCell>
                 <TableCell align="right">{user.nicknameId}</TableCell>
